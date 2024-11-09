@@ -2,6 +2,9 @@
 # Runs a command (or sequence of commands) and prints the output
 # Connection type:
 # - SSH
+# Command:
+#   ansible-playbook -i hosts ros-cmd-output.yml
+#
 - name: RouterOS test with network_cli connection
   hosts: routers
   gather_facts: false
