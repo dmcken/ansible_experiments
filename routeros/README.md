@@ -7,6 +7,11 @@ My routeros ansible tests / experiments.
 
 ## Scenarios
 
+### Run command
+
+[Run a single command and print output](ros-cmd-output.yml)
+
+
 ### Set - Flat
 
 Flat settings are those not grouped in any way whatsoever, an example of which is IP or routerboard settings.
