@@ -2,6 +2,10 @@
 
 My routeros ansible tests / experiments.
 
+Uses the following software:
+- https://github.com/ansible-collections/community.routeros
+- https://docs.ansible.com/ansible/latest/collections/community/routeros/index.html
+
 ## Network Layout
 
 
