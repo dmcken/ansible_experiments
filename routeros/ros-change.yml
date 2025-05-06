@@ -1,0 +1,45 @@
+---
+- name: RouterOS test with API
+  hosts: routers
+  gather_facts: false
+  module_defaults:
+    group/community.routeros.api:
+      tls: false
+      hostname: "{{ ansible_host }}"
+      password: "{{ ansible_ssh_pass }}"
+      username: "{{ ansible_user }}"
+  tasks:
+    - name: Set SNMP
+      community.routeros.api_modify:
+        path: snmp
+        handle_absent_entries: ignore
+        data:
+          - enabled: yes
+            contact: DM
+            location: MHOME
+    - name: Set SNMP community
+      community.routeros.api_find_and_modify:
+        path: snmp community
+        find:
+          default: yes
+        values:
+          name: testcommunity
+    - name: Setup RFC1918 address list
+      community.routeros.api_modify:
+        path: ip firewall address-list
+        handle_absent_entries: remove
+        # handle_entries_content: remove_as_much_as_possible
+        restrict:
+          - field: list
+            values:
+              - RFC1918
+        data:
+          - list: RFC1918
+            address: 10.0.0.0/8
+            comment: "RFC1918"
+          - list: RFC1918
+            address: 172.16.0.0/12
+            comment: "RFC1918"
+          - list: RFC1918
+            address: 192.168.0.0/16
+            comment: "RFC1918"
