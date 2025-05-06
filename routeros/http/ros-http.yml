@@ -1,0 +1,29 @@
+---
+- name: RouterOS test with API
+  hosts: localhost
+  gather_facts: false
+  vars:
+    hostname: 192.168.1.12
+    username: hal9000
+    password: password123
+  module_defaults:
+    group/community.routeros.api:
+      hostname: "{{ hostname }}"
+      password: "{{ password }}"
+      username: "{{ username }}"
+      tls: false
+      force_no_cert: false
+      validate_certs: false
+      validate_cert_hostname: false
+      ca_path: /path/to/ca-certificate.pem
+  tasks:
+    - name: Change RADIUS incoming to active.
+      community.routeros.api_modify:
+        path: radius incoming
+        data:
+          - accept: yes
+
+    - name: Retrieve facts
+      community.routeros.api_facts:
+    - ansible.builtin.debug:
+        msg: "First IP address: {{ ansible_net_all_ipv4_addresses[0] }}"
