@@ -1,4 +1,13 @@
 ---
+# Self contained playbook (no separate inventory or variables required).
+# This sets /radius/incoming/accept to 'yes' in an indemponent way.
+# Fetches IP addresses from the router and prints the first one.
+# 
+# Connection type:
+# - API
+# Command:
+#   ansible-playbook ros-single.yml
+#
 - name: RouterOS test with API
   hosts: localhost
   gather_facts: false

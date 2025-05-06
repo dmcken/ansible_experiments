@@ -93,22 +93,3 @@ Columns: LIST, ADDRESS, CREATION-TIME
 ### Set - Ordered group
 
 These are scenarios where there are ordered groups of configuration. An example would be firewall rules. Ordering is important within each group (as well as possibly between groups).
-
-
-## Implementations
-
-### Self contained 
-
-[`ros-single.yml`](ros-single.yml) is a completely self contained playbook (no separate inventory or vars). It is to
-provide a minimum example to confirm all is operating correctly.
-
-Update the hostname, username and password to match your environment and then you can run it with the following command:
-```bash
-ansible-playbook ros-single.yml
-```
-
-It sets `/radius/incoming/accept` to 'yes' and is indemponent as is most of the rest of ansible.
-
-It also fetches the IP address and displays the first one.
-
-
