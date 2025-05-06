@@ -16,8 +16,7 @@ Uses the following software:
 [`ros-single.yml`](ros-single.yml) is a completely self contained playbook (no separate inventory or vars). It is to
 provide a minimum example to confirm all is operating correctly.
 
-It can be run with the following:
-
+Update the hostname, username and password to match your environment and then you can run it with the following command:
 ```bash
 ansible-playbook ros-single.yml
 ```
