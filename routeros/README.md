@@ -60,7 +60,7 @@ Flat settings are those not grouped in any way whatsoever, an example of which i
 These are scenarios where the settings are grouped by some sort of unique identifier, an example is IP -> Service (the unique identifier being the service name) or Interfaces. 
 
 ```
-[admin@RTR_bedroom] > /ip/service/print
+[admin@RTR_R2] > /ip/service/print
 Flags: X - DISABLED, I - INVALID
 Columns: NAME, PORT, CERTIFICATE, VRF, MAX-SESSIONS
 #   NAME     PORT  CERTIFICATE  VRF   MAX-SESSIONS
